@@ -1,0 +1,206 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    background-color: hsl(234, 29%, 20%);
+}
+.container{
+    width: 60%;
+    height: 70%;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.container-succes{
+    width: 30%;
+    height: 60%;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-succes{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.image-succes{
+    width: 60px;
+    height: 60px;
+    background-image: url(assets/images/icon-success.svg);
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+}
+.card-succes h1{
+    font-size: 42px;
+    color: hsl(235, 18%, 26%);
+}
+.card-succes p{
+    font-size: 16px;
+}
+.card-succes button{
+    width: 95%;
+    min-height: 40px;
+    background-color: hsl(235, 18%, 26%);
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    border: 1px solid hsl(235, 18%, 26%);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card-succes button:hover{
+    background-color: hsl(4, 100%, 67%);
+    border: 1px solid hsl(4, 100%, 67%);
+    box-shadow: 0px 0px 4px 1px hsl(4, 100%, 67%);;
+}
+.cardText{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+.cardText h1{
+    font-size: 42px;
+    color: hsl(235, 18%, 26%);
+}
+.cardText .pText{
+    font-size: 16px;
+}
+.cardText ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.cardText ul li{
+    width: 100%;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+.cardText ul li span{
+    width: 20px;
+    height: 20px;
+    background-image: url(assets/images/icon-list.svg);
+    background-size: cover;
+}
+.cardText ul li p{
+    font-size: 16px;
+}
+.cardEmail{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cardEmail .emailValidation{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.pEmail{
+    font-weight: bold;
+}
+.cardEmail input{
+    height: 40px;
+    padding-left: 20px;
+    border: 1px solid hsl(231, 7%, 60%);
+    border-radius: 5px;
+    font-size: 14px;
+}
+.cardEmail input:focus-visible{
+    outline: 1px solid hsl(231, 7%, 60%);
+}
+.cardText button{
+    width: 95%;
+    min-height: 40px;
+    background-color: hsl(235, 18%, 26%);
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    border: 1px solid hsl(235, 18%, 26%);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cardText button:hover{
+    background-color: hsl(4, 100%, 67%);
+    border: 1px solid hsl(4, 100%, 67%);
+    box-shadow: 0px 0px 4px 1px hsl(4, 100%, 67%);;
+}
+.cardImage{
+    width: 40%;
+    height: 90%;
+    background-image: url(assets/images/illustration-sign-up-desktop.svg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+.attribution{ 
+    font-size: 11px; 
+    text-align: center; 
+    color: hsl(0, 0%, 100%);
+}
+.attribution a{ 
+    color: hsl(228, 45%, 44%); 
+}
+@media screen and (max-width:500px){
+    .container{
+        width: 90%;
+        height: 700px;
+        flex-direction: column-reverse;
+    }
+    .cardImage{
+        width: 100%;
+        height: 100%;
+        background-image: url(assets/images/illustration-sign-up-mobile.svg);
+    }
+    .cardText{
+        width: 90%;
+        height: 65%;
+    }
+    .cardText h1{
+        font-size: 30px;
+    }
+    .cardText ul{
+        justify-content: flex-start;
+        gap: 15px;
+    }
+    .cardText ul li span{
+        width: 22px;
+        height: 22px;
+    }
+    .cardText ul li:first-child span{
+        width: 23px;
+    }
+    .cardText button{
+        margin-bottom: 20px;
+    }
+    .container-succes{
+        width: 90%;
+        height: 500px;
+    }
+    .card-succes button{
+        margin-top: 120px;
+    }
+}
