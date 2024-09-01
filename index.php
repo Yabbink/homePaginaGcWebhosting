@@ -83,12 +83,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       $('.cardText button').on('click', function(){
         const email = $('#email').val()
+        const bericht = $('#bericht')
 
         let regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
 
         if (regex.test(email)) {
+          if (!bericht.val()) {
+            $('.validation2').html("Message is required").css("color", "hsl(4, 100%, 67%)")
+            $('#bericht').css("background-color", "hsl(4, 100%, 67%)")
+          } else {
             $('.container').css("display", "none")
             $('.container-succes').css("display", "flex")
+          }
         } else {
             $('.validation').html("Valid email required").css("color", "hsl(4, 100%, 67%)")
             $('#email').css("background-color", "hsl(4, 100%, 67%)")
@@ -99,8 +105,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $('.container-succes').css("display", "none")
         $('.container').css("display", "flex")
         $('#email').val("").css("background-color", "hsl(0, 0%, 100%)")
-        $('#bericht').val("")
+        $('#bericht').val("").css("background-color", "hsl(0, 0%, 100%)")
         $('.validation').html("")
+        $('.validation2').html("")
       })
     })
   </script>
@@ -122,6 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <p class="validation"></p>
         </div>
         <input type="text" name="email" id="email" placeholder="email@company.com">
+        <p class="validation2"></p>
         <textarea name="bericht" id="bericht" placeholder="voer hier tekst in"></textarea>
       </div>
       <button type="submit">Subscribe to monthly newsletter</button>
