@@ -80,6 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <script>
     $(document).ready(function(){
       $('.container-succes').css("display", "none")
+      $('.validation2').css("display", "none")
 
       $('.cardText button').on('click', function(){
         const email = $('#email').val()
@@ -89,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if (regex.test(email)) {
           if (!bericht.val()) {
-            $('.validation2').html("Message is required").css("color", "hsl(4, 100%, 67%)")
+            $('.validation2').html("Message is required").css({"color":"hsl(4, 100%, 67%)", "display":"block"})
             $('#bericht').css("background-color", "hsl(4, 100%, 67%)")
           } else {
             $('.container').css("display", "none")
@@ -107,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $('#email').val("").css("background-color", "hsl(0, 0%, 100%)")
         $('#bericht').val("").css("background-color", "hsl(0, 0%, 100%)")
         $('.validation').html("")
-        $('.validation2').html("")
+        $('.validation2').html("").css("display", "none")
       })
     })
   </script>
