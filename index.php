@@ -9,7 +9,7 @@ function filterEmail($field){
   if(filter_var($field, FILTER_VALIDATE_EMAIL)){
       return $field;
   } else{
-      return FALSE;
+      return FALSE; 
   }
 }
 function filterString($field){
