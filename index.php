@@ -1,3 +1,73 @@
+<?php 
+// Functions to filter user inputs    
+$field = "";
+function filterEmail($field){
+  // Sanitize e-mail address
+  $field = filter_var(trim($field), FILTER_SANITIZE_EMAIL);
+  
+  // Validate e-mail address
+  if(filter_var($field, FILTER_VALIDATE_EMAIL)){
+      return $field;
+  } else{
+      return FALSE;
+  }
+}
+function filterString($field){
+  // Sanitize string
+  $field = filter_var(trim($field), FILTER_SANITIZE_STRING);
+  if(!empty($field)){
+      return $field;
+  } else{
+      return FALSE;
+  }
+}
+
+// Define variables and initialize with empty values
+$nameErr = $emailErr = $messageErr = "";
+$name = $email = $message = "";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  // Validate email address
+  if(empty($_POST["email"])){
+      $emailErr = "Vul svp een geldig e-mail adres in";     
+  } else{
+      $email = filterEmail($_POST["email"]);
+      if($email == FALSE){
+          $emailErr = "Vul svp een geldig e-mail adres in";
+      }
+  }
+  
+  // Validate user comment
+  if(empty($_POST["bericht"])){
+      $messageErr = "Vul svp een bericht of vraag in";     
+  } else{
+      $message = filterString($_POST["bericht"]);
+      if($message == FALSE){
+          $messageErr = "Vul svp een bericht of vraag in";
+      }
+  }
+  
+  // Check input errors before sending email
+  if(empty($nameErr) && empty($emailErr) && empty($messageErr)){
+      // Recipient email address
+      // this should be <username>@username.gc-webhosting.nl
+      $to = 'net24yhuet@net24yhuet.gc-webhosting.nl';
+      
+      // Create email headers
+      $headers = 'From: '. $email . "\r\n" .
+      'Reply-To: '. $email . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+      
+      // Sending email
+      if(mail($to, $message, $headers)){
+          echo '<p class="success">Je bericht is succesvol verzonden!</p>';
+      } else{
+          echo '<p class="error">Niet gelukt om te verzenden. Probeer svp opnieuw!</p>';
+      }
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +99,7 @@
         $('.container-succes').css("display", "none")
         $('.container').css("display", "flex")
         $('#email').val("").css("background-color", "hsl(0, 0%, 100%)")
+        $('#bericht').val("")
         $('.validation').html("")
       })
     })
@@ -51,6 +122,7 @@
           <p class="validation"></p>
         </div>
         <input type="text" name="email" id="email" placeholder="email@company.com">
+        <textarea name="bericht" id="bericht" placeholder="voer hier tekst in"></textarea>
       </div>
       <button type="submit">Subscribe to monthly newsletter</button>
     </div>

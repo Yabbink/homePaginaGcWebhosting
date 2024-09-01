@@ -16,7 +16,7 @@ body{
 }
 .container{
     width: 60%;
-    height: 70%;
+    height: 80%;
     border-radius: 5px;
     background-color: hsl(0, 0%, 100%);
     display: flex;
@@ -131,6 +131,16 @@ body{
     font-size: 14px;
 }
 .cardEmail input:focus-visible{
+    outline: 1px solid hsl(231, 7%, 60%);
+}
+.cardEmail textarea{
+    height: 60px;
+    padding-left: 20px;
+    border:1px solid hsl(231, 7%, 60%);
+    border-radius: 5px;
+    resize: none;
+}
+.cardEmail textarea:focus-visible{
     outline: 1px solid hsl(231, 7%, 60%);
 }
 .cardText button{
