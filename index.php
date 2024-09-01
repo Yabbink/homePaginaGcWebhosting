@@ -51,6 +51,7 @@
           <p class="validation"></p>
         </div>
         <input type="text" name="email" id="email" placeholder="email@company.com">
+        <textarea name="bericht" id="bericht" placeholder="voer hier tekst in"></textarea>
       </div>
       <button type="submit">Subscribe to monthly newsletter</button>
     </div>
